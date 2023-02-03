@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from "./views/Login";
+import PrincipalPage from "./views/index";
 import { Product } from "./views/Product";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Login />} />
+        <Route index element={<PrincipalPage />} />
         <Route
           path="/Product"
           element={
