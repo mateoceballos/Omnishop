@@ -1,6 +1,10 @@
 @import "./_mainPage";
 @import "./login";
 @import "./register";
+@import "./Products/index";
+@import "./Products/ProdsSlider";
+@import "./Products/InfoProducts";
+@import "./Footer";
 // variable de mediaquery
 $medium: 359px;
 body {
@@ -18,12 +22,12 @@ p {
 }
 .bodyPage {
   width: 360px;
-  height: 760px;
+  min-height: 760px;
   margin: 0 auto;
   display: flex;
   @media screen and (max-width: $medium) {
     width: 100%;
-    height: 210vw;
+    min-height: 210vw;
   }
 }
 .blankBase {
@@ -34,4 +38,8 @@ p {
   width: 100%;
   height: auto;
   border-radius: 24px;
+}
+
+.DN {
+  display: none;
 }

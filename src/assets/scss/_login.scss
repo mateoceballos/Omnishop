@@ -8,13 +8,13 @@ $px12: 3.3vw;
   position: relative;
   display: grid;
   grid-template-columns: 248px;
-  grid-template-rows: 50px 54px 50px 29px 53px 29px;
+  grid-template-rows: 50px 54px auto 29px 53px 29px;
   padding-bottom: 32px;
   margin: 0 auto;
   align-items: end;
   @media screen and (max-width: $medium) {
     grid-template-columns: 68.8vw;
-    grid-template-rows: 13.8vw 15vw 13.8vw 8vw 14.7vw 8vw;
+    grid-template-rows: 13.8vw 15vw auto 8vw 14.7vw 8vw;
     padding-bottom: 8.8vw;
   }
   .pGenP {
@@ -32,6 +32,36 @@ $px12: 3.3vw;
   .pRegular {
     font-weight: 400;
   }
+  .containerBase {
+    padding-top: 8px;
+    @media screen and (max-width: $medium) {
+      padding-top: 2.2vw;
+    }
+    .divError {
+      border: 1px solid #ff006c;
+      input {
+        color: #ff006c;
+      }
+    }
+    .pBase {
+      font-weight: 400;
+      text-align: left;
+      letter-spacing: 0;
+      font-size: 10px;
+      margin-top: 4px;
+      @media screen and (max-width: $medium) {
+        font-size: 2.7vw;
+        margin-top: 1.1vw;
+      }
+    }
+    .pError {
+      color: #ff006c;
+    }
+    .pOk {
+      color: #7315be;
+    }
+  }
+
   .userInputDivGen {
     width: 247px;
     height: 42px;
@@ -68,6 +98,12 @@ $px12: 3.3vw;
         width: 3.8vw;
         height: 3.4vw;
       }
+    }
+  }
+  .divError {
+    border: 1px solid #ff006c;
+    input {
+      color: #ff006c;
     }
   }
   input {

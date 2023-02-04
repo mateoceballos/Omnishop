@@ -44,3 +44,16 @@ export function registerUser(name, last, mail, pass) {
       });
   });
 }
+
+export function getAllUser(name, last, mail, pass) {
+  return new Promise((resolve, reject) => {
+    fetch("https://fakestoreapi.com/users")
+      .then((res) => res.json())
+      .then((tok) => {
+        resolve(tok);
+      })
+      .catch((err) => {
+        reject("Fetch Error!!!", err);
+      });
+  });
+}

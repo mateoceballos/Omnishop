@@ -1,31 +1,86 @@
 import { useState, useContext } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import eyeP from "../assets/img/Password.png";
 import eyeOp from "../assets/img/EyeP.svg";
-import { accessUser } from "../store/users";
+import { accessUser, getAllUser } from "../store/users";
 import { validContext } from "../App";
 export function Login() {
   const [passw, setPassw] = useState(true);
   const [formUser, setFormUser] = useState("");
   const [formPass, setFormPass] = useState("");
+  const [datavalid, setDatavalid] = useState({
+    user: true,
+    pass: true,
+  });
+  const [messageError, setMessageError] = useState("");
   const [newsA, setNewsA] = useState(false);
   const { loadingTrue, loadingFalse } = useContext(validContext);
+  let navigate = useNavigate();
   const loginProcess = async () => {
-    // localStorage.setItem("user", JSON.stringify({ user: "jhon", Id: 3 }));
-    const token = await accessUser(formUser, formPass);
-    if (token) {
-      loadingTrue("log");
-      setTimeout(() => {
-        loadingFalse("log");
-      }, "2000");
+    //proceso de validación
+    const users = await getAllUser();
+    let User = null;
+    let Password = null;
+    let PasswordValid = true;
+    await users.map(function (element) {
+      if (element.email === formUser) {
+        if (element.password === formPass) {
+          User = element.email;
+          Password = element.password;
+        } else {
+          User = element.email;
+          PasswordValid = false;
+        }
+      }
+      return null;
+    });
+    if (User === null && Password === null) {
+      const localH = JSON.parse(localStorage.getItem("newUsers") || null);
+      await localH.map(function (element) {
+        if (element.user === formUser) {
+          if (element.password === formPass) {
+            User = element.user;
+            Password = element.password;
+          } else {
+            PasswordValid = false;
+          }
+        }
+        return null;
+      });
     }
-    console.log(token);
+    if (User !== null && !PasswordValid) {
+      setDatavalid({
+        user: true,
+        pass: false,
+      });
+      setMessageError("Contraseña incorrecta");
+    } else if (User === null) {
+      setDatavalid({
+        user: false,
+        pass: false,
+      });
+      setMessageError("Usuario y contraseña incorrecta");
+    } else if (User !== null && PasswordValid) {
+      setDatavalid({
+        user: true,
+        pass: true,
+      });
+      setMessageError("Iniciando sesion...");
+      const token = await accessUser("john@gmail.com", "m38rmF$");
+      if (token) {
+        loadingTrue("log");
+        localStorage.setItem("token", JSON.stringify(token));
+        setTimeout(() => {
+          loadingFalse("log");
+          navigate("/Product");
+        }, "2000");
+      }
+    }
   };
   function passchange() {
     setPassw(!passw);
   }
 
-  // let navigate = useNavigate();
   return (
     <form
       className="baseDivLogin"
@@ -35,31 +90,38 @@ export function Login() {
       }}
     >
       <p className="pGenP pTitle">Ingresa con tus datos</p>
-      <div className="userInputDivGen jcc">
+      <div className={`userInputDivGen ${!datavalid.user ? "divError" : ""}`}>
         <input
           className="iUser"
           type="text"
           name="email"
           id="Uemail"
           placeholder="Email o nombre de usuario"
+          required
           onChange={(e) => setFormUser(e.target.value)}
         />
       </div>
-      <div className="userInputDivGen ipass">
-        <input
-          className="ipass"
-          type={`${passw ? "password" : "text"}`}
-          name="password"
-          id="Upassword"
-          placeholder="Ingresa contraseña"
-          onChange={(e) => setFormPass(e.target.value)}
-        />
-        <img
-          className="imgpass"
-          onClick={passchange}
-          src={`${passw ? eyeP : eyeOp} `}
-          alt=""
-        />
+      <div className="containerBase">
+        <div className={`userInputDivGen ${!datavalid.pass ? "divError" : ""}`}>
+          <input
+            className="ipass"
+            type={`${passw ? "password" : "text"}`}
+            name="password"
+            id="Upassword"
+            placeholder="Ingresa contraseña"
+            required
+            onChange={(e) => setFormPass(e.target.value)}
+          />
+          <img
+            className="imgpass"
+            onClick={passchange}
+            src={`${passw ? eyeP : eyeOp} `}
+            alt=""
+          />
+        </div>
+        <p className={`pBase ${!datavalid.pass ? "pError" : "pOk"}`}>
+          {`${messageError}`}
+        </p>
       </div>
       <div className="containerNews">
         <div
@@ -72,7 +134,6 @@ export function Login() {
         Ingresa
       </button>
       <p className="pGenP pRegular">¿Olvidaste tu contraseña?</p>
-      {/* <button onClick={() => navigate("/Product")}>product</button> */}
     </form>
   );
 }

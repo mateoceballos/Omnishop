@@ -1,0 +1,282 @@
+//var page size
+$medium: 359px;
+//vars letter size
+$px36: 10vw;
+$px12: 3.3vw;
+//end letter size
+.infoProsBase {
+  background-color: #ffffff;
+  width: 100%;
+  height: auto;
+  border-radius: 20px 0px 0px 0px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -10px;
+  @media screen and (max-width: $medium) {
+    margin-top: -2.7vw;
+  }
+  .newBtn {
+    background-color: #efe8ee;
+    position: absolute;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1d221a;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-size: 10px;
+    top: 20px;
+    left: 24px;
+    width: 44px;
+    height: 24px;
+    @media screen and (max-width: $medium) {
+      font-size: 2.7vw;
+      top: 5.5vw;
+      left: 6.6vw;
+      width: 12.2vw;
+      height: 6.6vw;
+    }
+  }
+  .imgHeart {
+    position: absolute;
+    width: 18px;
+    height: 16px;
+    top: 24px;
+    right: 24px;
+    @media screen and (max-width: $medium) {
+      width: 5vw;
+      height: 4.4vw;
+      top: 6.6vw;
+      right: 6.6vw;
+    }
+  }
+  .infoGrid {
+    display: grid;
+    grid-template-columns: 312px;
+    grid-template-rows: 76px 22px 32px 36px 53px 240px 277px;
+    align-items: flex-end;
+    position: relative;
+    margin-left: 24px;
+    @media screen and (max-width: $medium) {
+      grid-template-columns: 86.6vw;
+      grid-template-rows: 21.1vw 6.1vw 8.8vw 10vw 14.7vw 66.6vw 76.9vw;
+    }
+  }
+  .pTitleProd {
+    color: #7315be;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 0;
+    @media screen and (max-width: $medium) {
+      font-size: 3.8vw;
+    }
+  }
+  .imgStars {
+    width: 86px;
+    height: 14px;
+    @media screen and (max-width: $medium) {
+      width: 23.8vw;
+      height: 3.8vw;
+    }
+  }
+  .priceDivP {
+    display: flex;
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      width: 74px;
+      @media screen and (max-width: $medium) {
+        font-size: 3.8vw;
+        width: 20.5vw;
+      }
+    }
+    .pNormalP {
+      color: #7315be;
+      text-decoration: line-through;
+    }
+    .pOfertP {
+      color: #343434;
+      margin-left: 8px;
+      @media screen and (max-width: $medium) {
+        margin-left: 2.2vw;
+      }
+    }
+  }
+  .sizes {
+    display: flex;
+    .boxSizes {
+      width: 32px;
+      height: 24px;
+      margin-right: 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: #000000;
+      @media screen and (max-width: $medium) {
+        width: 8.8vw;
+        height: 6.6vw;
+        margin-right: 2.2vw;
+        font-size: 2.7vw;
+      }
+    }
+    .borderSelec {
+      border: 2px #7315be solid;
+      box-shadow: inset 0px 3px 6px #00000029;
+      color: #7315be;
+    }
+  }
+  .btnsProd {
+    display: flex;
+    .inventaryP {
+      display: flex;
+      width: 124px;
+      height: 41px;
+      border: 1px #9b4bf8 solid;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 12px;
+      margin-right: 4px;
+      font-weight: 600;
+      @media screen and (max-width: $medium) {
+        width: 34.4vw;
+        height: 11.3vw;
+        margin-right: 1.1vw;
+      }
+      p {
+        font-size: 12px;
+        @media screen and (max-width: $medium) {
+          font-size: $px12;
+        }
+      }
+    }
+    .addCar {
+      box-shadow: 0px 3px 6px #4b008666;
+      background: transparent linear-gradient(179deg, #650faa 0%, #9558c4 100%);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 185px;
+      height: 41px;
+      color: #ffffff;
+      @media screen and (max-width: $medium) {
+        width: 50.2vw;
+        height: 11.3vw;
+        font-size: $px12;
+      }
+    }
+  }
+  .descBox {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      font-size: 12px;
+      letter-spacing: 0;
+      text-align: left;
+      @media screen and (max-width: $medium) {
+        font-size: $px12;
+      }
+    }
+    .titleDesc {
+      color: #7315be;
+      font-weight: 600;
+      margin-bottom: 6px;
+      @media screen and (max-width: $medium) {
+        margin-bottom: 1.6vw;
+      }
+    }
+    .descProduct {
+      color: #434343;
+      max-height: 181px;
+      overflow-y: hidden;
+      font-weight: 400;
+      margin-bottom: 8px;
+      @media screen and (max-width: $medium) {
+        margin-bottom: 2.2vw;
+      }
+    }
+    .readMore {
+      font-weight: 400;
+      color: #7315be;
+    }
+  }
+  .moreP {
+    .pMoreProds {
+      color: #7315be;
+      font-size: 12px;
+      text-align: left;
+      letter-spacing: 0.96px;
+      margin-top: 20px;
+      @media screen and (max-width: $medium) {
+        margin-top: 5.5vw;
+        font-size: $px12;
+      }
+    }
+    .sliderMoreProds {
+      height: 238px;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+      @media screen and (max-width: $medium) {
+        height: 66.1vw;
+      }
+      .productItem {
+        width: 132px;
+        height: 230px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 8px;
+        padding-top: 12px;
+        flex-direction: column;
+        @media screen and (max-width: $medium) {
+          width: 36.6vw;
+          height: 63.8vw;
+          padding-top: $px12;
+          margin-right: 2.2vw;
+        }
+        img {
+          border-radius: 8px;
+          width: 124px;
+          height: 132px;
+          @media screen and (max-width: $medium) {
+            width: 34.4vw;
+            height: 36.6vw;
+          }
+        }
+        .titlePMore {
+          font-size: 12px;
+          font-weight: 500;
+          text-align: left;
+          letter-spacing: 0;
+          color: #343434;
+          margin-top: 12px;
+          max-height: 49px;
+          overflow: hidden;
+          @media screen and (max-width: $medium) {
+            font-size: $px12;
+            margin-top: $px12;
+            max-height: 13.6vw;
+          }
+        }
+        .pPriceP {
+          font-size: 12px;
+          color: #6200ff;
+          font-weight: 400;
+          margin-top: 4px;
+          @media screen and (max-width: $medium) {
+            font-size: $px12;
+            margin-top: 1.1vw;
+          }
+        }
+      }
+    }
+  }
+}

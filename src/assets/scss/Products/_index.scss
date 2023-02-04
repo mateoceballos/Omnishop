@@ -1,0 +1,63 @@
+//var page size
+$medium: 359px;
+//vars letter size
+$px36: 10vw;
+$px12: 3.3vw;
+//end letter size
+.baseProds {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px #80808026 solid;
+
+  .imgBurger {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 25.1px;
+    left: 25.5px;
+    z-index: 2;
+    @media screen and (max-width: $medium) {
+      width: 4.4vw;
+      height: 4.4vw;
+      top: 6.9vw;
+      left: 7vw;
+    }
+  }
+  .divImgOmni {
+    position: absolute;
+    border-radius: 50px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 69px;
+    height: 69px;
+    top: -17px;
+    right: -10px;
+    z-index: 2;
+    @media screen and (max-width: $medium) {
+      width: 19.1vw;
+      height: 19.1vw;
+      top: -4.7vw;
+      right: -2.7vw;
+    }
+    img {
+      width: 28.6px;
+      height: 22.2px;
+      @media screen and (max-width: $medium) {
+        width: 7.9vw;
+        height: 6.1vw;
+      }
+    }
+  }
+  .divContainerProdGen {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 425.7px 733px 89.23px;
+    position: relative;
+    @media screen and (max-width: $medium) {
+      grid-template-rows: 118.2vw 203.6vw 24.7vw;
+    }
+  }
+}
