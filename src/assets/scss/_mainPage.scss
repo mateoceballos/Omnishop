@@ -4,6 +4,80 @@ $medium: 359px;
 $px36: 10vw;
 $px12: 3.3vw;
 //end letter size
+.dn {
+  display: none;
+}
+.imgReg {
+  background-image: url("../img/Regist2x.png");
+  div {
+    width: 261.9px;
+    @media screen and (max-width: $medium) {
+      width: 72.7vw;
+    }
+    p {
+      width: 178px;
+      @media screen and (max-width: $medium) {
+        width: 49.4vw;
+      }
+    }
+  }
+}
+.imgLog {
+  background-image: url("../img/Loading2x.png");
+  div {
+    width: 295.9px;
+    @media screen and (max-width: $medium) {
+      width: 82.1vw;
+    }
+    p {
+      width: 212px;
+      @media screen and (max-width: $medium) {
+        width: 58.8vw;
+      }
+    }
+  }
+}
+.imgGenComplete {
+  position: fixed;
+  top: 0;
+  left: auto;
+  width: 360px;
+  height: 760px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    height: 210vw;
+  }
+  div {
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 59.7px;
+      height: 46.4px;
+      @media screen and (max-width: $medium) {
+        width: 16.5vw;
+        height: 12.8vw;
+      }
+    }
+    p {
+      font-size: 36px;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: left;
+      letter-spacing: 0;
+      @media screen and (max-width: $medium) {
+        font-size: $px36;
+      }
+    }
+  }
+}
 .baseDivSession {
   width: 100%;
   height: 100%;

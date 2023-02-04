@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 import eyeP from "../assets/img/Password.png";
+import eyeOp from "../assets/img/EyeP.svg";
 import { accessUser } from "../store/users";
+import { validContext } from "../App";
 export function Login() {
   const [passw, setPassw] = useState(true);
   const [formUser, setFormUser] = useState("");
   const [formPass, setFormPass] = useState("");
   const [newsA, setNewsA] = useState(false);
+  const { loadingTrue, loadingFalse } = useContext(validContext);
   const loginProcess = async () => {
     // localStorage.setItem("user", JSON.stringify({ user: "jhon", Id: 3 }));
     const token = await accessUser(formUser, formPass);
+    if (token) {
+      loadingTrue("log");
+      setTimeout(() => {
+        loadingFalse("log");
+      }, "2000");
+    }
     console.log(token);
-    setPassw(!passw);
   };
+  function passchange() {
+    setPassw(!passw);
+  }
 
   // let navigate = useNavigate();
   return (
@@ -43,7 +54,12 @@ export function Login() {
           placeholder="Ingresa contraseña"
           onChange={(e) => setFormPass(e.target.value)}
         />
-        <img className="imgpass" onClick={loginProcess} src={eyeP} alt="" />
+        <img
+          className="imgpass"
+          onClick={passchange}
+          src={`${passw ? eyeP : eyeOp} `}
+          alt=""
+        />
       </div>
       <div className="containerNews">
         <div

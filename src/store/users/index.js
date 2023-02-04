@@ -19,3 +19,28 @@ export function accessUser(user, password) {
       });
   });
 }
+export function registerUser(name, last, mail, pass) {
+  return new Promise((resolve, reject) => {
+    fetch("https://fakestoreapi.com/users", {
+      method: "POST",
+      body: JSON.stringify({
+        email: mail,
+        password: pass,
+        name: {
+          firstname: name,
+          lastname: last,
+        },
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((tok) => {
+        resolve(tok.id);
+      })
+      .catch((err) => {
+        reject("Fetch Error!!!", err);
+      });
+  });
+}
