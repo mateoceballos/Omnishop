@@ -42,6 +42,7 @@ export function Login() {
             User = element.user;
             Password = element.password;
           } else {
+            User = element.user;
             PasswordValid = false;
           }
         }
